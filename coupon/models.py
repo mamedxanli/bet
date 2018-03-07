@@ -1,7 +1,8 @@
 from django.db import models
 
 class Coupon(models.Model):
-    coupon_id =
+    coupon_id = models.CharField("Coupon id", max_length=30, help_text=
+        "Coupon id")
     firstname = models.CharField("First Name", max_length=30, help_text=
         "First Name")
     lastname = models.CharField("Surname", max_length=30, help_text=
