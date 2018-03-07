@@ -57,3 +57,7 @@ class Coupon(models.Model):
         "Eleventh bet")
     bet12 = models.CharField("Bet 12", max_length=3,help_text=
         "Twelfth bet")
+
+
+    def __str__(self):
+        return "Coupon {}".format(self.coupon_id)
