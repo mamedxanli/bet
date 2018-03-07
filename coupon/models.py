@@ -8,7 +8,7 @@ class Coupon(models.Model):
     lastname = models.CharField("Surname", max_length=30, help_text=
         "Surname")
     phone_number = models.CharField("Phone number", max_length=20, help_text=
-        "Phone number)
+        "Phone number")
     match1 = models.CharField("Match 1", max_length=50,help_text=
         "First match")
     match2 = models.CharField("Match 2", max_length=50,help_text=
