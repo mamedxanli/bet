@@ -1,10 +1,11 @@
 from django.conf.urls import url
-from coupon.views import EmptyCoupon
 from coupon import views
 from django.urls import path
 
 
 urlpatterns = [
-    url(r'^$', views.EmptyCoupon.as_view(), name='coupon'),
-    path('<coupon>/', views.show_coupon, name='show_coupon')
+    url(r'^$', views.CouponCreate.as_view(), name='coupon'),
+    #url(r'^post_coupon/(?P<pk>\d+)/$', views.post_coupon, name='post_coupon'),
+    #url(r'^post_coupon/(?P<pk>\d+)/$', views.post_coupon, name='post_coupon'),
+
               ]
