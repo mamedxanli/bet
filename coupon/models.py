@@ -1,8 +1,7 @@
 from django.db import models
 
 class Coupon(models.Model):
-    coupon_id = models.CharField("Coupon id", max_length=30, help_text=
-        "Coupon id")
+    coupon_id = models.CharField("Coupon id", max_length=30)
     firstname = models.CharField("First Name", max_length=30, help_text=
         "First Name")
     lastname = models.CharField("Surname", max_length=30, help_text=
@@ -17,8 +16,7 @@ class Coupon(models.Model):
         "Third match")
     match4 = models.CharField("Match 4", max_length=50,help_text=
         "Fourth match")
-    match5 = models.CharField("Match 5", max_length=50,help_text=
-        "Fifth match")
+    match5 = models.CharField("Match 5", max_length=50)
     match6 = models.CharField("Match 6", max_length=50,help_text=
         "Sixth match")
     match7 = models.CharField("Match 7", max_length=50,help_text=

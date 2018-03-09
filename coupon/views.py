@@ -4,7 +4,7 @@ from django.views import generic
 from coupon.forms import CouponForm
 from django.shortcuts import get_object_or_404, render
 
-
+"""
 def post_coupon(request):
     if request.method == "POST":
         form = CouponForm(request.POST)
@@ -18,13 +18,17 @@ def post_coupon(request):
 
     return render(request, "coupon_list.html", {'form': form})
 
+"""
 
 
-
-def show_coupon(request):
-    coupon = get_object_or_404(Coupon)
-    return render(request, 'coupon/coupon_list.html', {'coupon': coupon})
-
+class CouponCreate(generic.CreateView):
+    model = Coupon
+    form_class = CouponForm
+"""
+    def show_coupon(self, request):
+        coupon = get_object_or_404(Coupon)
+        return render(request, 'coupon/coupon_list.html', {'coupon': coupon})
+"""
 
 
 

@@ -58,7 +58,7 @@
 <p><label for="Bet12">Bet 12: </label>
 <input id="bet12" type="text" name="Bet12" maxlength="100" required></p>
 
-<form action="post_coupon" method="post">
+<form method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
