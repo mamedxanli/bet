@@ -3,17 +3,24 @@ from django.forms import (ModelForm, ValidationError, CharField)
 from coupon.models import Coupon
 from django import forms
 
-class CouponForm(forms.Form):
-    match1 = forms.CharField(label="Match1", max_length=100)
-
-
-
-"""
-Example for template:
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-
-"""
+class CouponForm(ModelForm):
+    class Meta:
+        model = Coupon
+        fields = (
+        'firstname',
+        'lastname',
+        'phone_number',
+        'coupon_id',
+        'match1',
+        'match2',
+        'match3',
+        'match4',
+        'match5',
+        'match6',
+        'match7',
+        'match8',
+        'match9',
+        'match10',
+        'match11',
+        'match12',
+        )
