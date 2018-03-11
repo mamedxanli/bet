@@ -9,6 +9,7 @@
     <orderEntry type="module" module-name="taxilla-master" />
     <orderEntry type="module" module-name="taxilla-master" />
     <orderEntry type="module" module-name="taxilla-master" />
+    <orderEntry type="module" module-name="mercury" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

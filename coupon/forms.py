@@ -9,6 +9,7 @@ class CouponForm(ModelForm):
     class Meta:
         model = Coupon
         fields = (
+        'coupon_tour',
         'firstname',
         'lastname',
         'phone_number',
@@ -16,29 +17,9 @@ class CouponForm(ModelForm):
         'match1',
         'match2',
         'match3',
-        'match4',
-        'match5',
-        'match6',
-        'match7',
-        'match8',
-        'match9',
-        'match10',
-        'match11',
-        'match12',
         'bet1',
         'bet2',
         'bet3',
-        'bet4',
-        'bet5',
-        'bet6',
-        'bet7',
-        'bet8',
-        'bet9',
-        'bet10',
-        'bet11',
-        'bet12',      
+
 
         )
-        labels = {
-            'match1': _('Match 1'),
-        }
