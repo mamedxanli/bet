@@ -3,7 +3,7 @@ from games.models import Games
 
 class Coupon(models.Model):
     coupon_tour = models.ForeignKey(Games, on_delete=models.CASCADE)
-    coupon_id = models.CharField("Coupon id", primary_key=True, max_length=30)
+    coupon_id = models.CharField("Coupon id", max_length=30)
     firstname = models.CharField("First Name", max_length=30)
     lastname = models.CharField("Surname", max_length=30)
     phone_number = models.CharField("Phone number", max_length=20)

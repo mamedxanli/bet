@@ -49,4 +49,4 @@ worker.pid
 worker.log
 
 #DBs
-.sqlite3
+/home/coach/workspace/210/bet/db.sqlite3
