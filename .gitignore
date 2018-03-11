@@ -51,3 +51,7 @@ worker.log
 #DBs
 *.sqlite3
 *.sqlite
+
+#Migrations
+**/migrations/**
+!**/migrations
