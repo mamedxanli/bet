@@ -1,6 +1,6 @@
 from coupon.models import Coupon, Games
 from django.views import generic
-from coupon.forms import CouponForm, GameForm
+from coupon.forms import CouponForm
 from django.shortcuts import get_object_or_404, render
 
 """
@@ -24,9 +24,8 @@ class CouponCreate(generic.CreateView):
     model = Coupon
     form_class = CouponForm
 
-class GameCreate(generic.CreateView):
-    model = Games
-    form_class = GameForm
+
+
 
 """
     def show_coupon(self, request):

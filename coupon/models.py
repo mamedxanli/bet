@@ -1,16 +1,5 @@
 from django.db import models
-
-class Games(models.Model):
-    games_tour = models.CharField("Tour", max_length=30, unique=True, null=False, default='0')
-    games_match1 = models.CharField("Match 1", max_length=50, unique=True)
-    games_match2 = models.CharField("Match 2", max_length=50, unique=True)
-    games_match3 = models.CharField("Match 3", max_length=50, unique=True)
-
-    def __str__(self):
-        return "Games tour nmr: {}".format(self.games_tour)
-
-    class Meta:
-        verbose_name_plural = 'Games'
+from games.models import Games
 
 class Coupon(models.Model):
     coupon_tour = models.ForeignKey(Games, to_field='games_tour', related_name='game_tour', max_length=30, on_delete=models.CASCADE)

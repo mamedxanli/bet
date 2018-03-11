@@ -22,5 +22,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
     url(r'^coupon/', include('coupon.urls')),
+    url(r'^games/', include('games.urls')),
     path('admin/', admin.site.urls),
 ]
