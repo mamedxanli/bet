@@ -2,7 +2,7 @@ from django.db import models
 from games.models import Games
 
 class Coupon(models.Model):
-    coupon_tour = models.ForeignKey(Games, to_field='games_tour', related_name='game_tour', max_length=30, on_delete=models.CASCADE)
+    coupon_tour = models.ForeignKey(Games, on_delete=models.CASCADE)
     coupon_id = models.CharField("Coupon id", max_length=30)
     firstname = models.CharField("First Name", max_length=30)
     lastname = models.CharField("Surname", max_length=30)
