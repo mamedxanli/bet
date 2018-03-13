@@ -3,7 +3,6 @@ from games.models import Games
 
 class Coupon(models.Model):
     coupon_tour = models.ForeignKey(Games, on_delete=models.CASCADE)
-    coupon_id = models.CharField("Coupon ID", max_length=30)
     firstname = models.CharField("First Name", max_length=30)
     lastname = models.CharField("Surname", max_length=30)
     phone_number = models.CharField("Phone number", max_length=20)
@@ -17,4 +16,4 @@ class Coupon(models.Model):
 
 
     def __str__(self):
-        return "Coupon {}".format(self.coupon_id)
+        return "Coupon {}".format(self.id)

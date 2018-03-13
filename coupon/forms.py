@@ -13,7 +13,6 @@ class CouponForm(ModelForm):
         'firstname',
         'lastname',
         'phone_number',
-        'coupon_id',
         'match1',
         'match2',
         'match3',
