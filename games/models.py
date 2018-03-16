@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.shortcuts import render, redirect
 
 
 class Games(models.Model):
@@ -7,8 +9,19 @@ class Games(models.Model):
     games_match2 = models.CharField("Match 2", max_length=50, unique=True)
     games_match3 = models.CharField("Match 3", max_length=50, unique=True)
 
+   
     def __str__(self):
         return "Games tour nmr: {}".format(self.games_tour)
 
+    def get_absolute_url(self):
+        """
+        Handy way of getting the url of the object to its detail view page
+        """
+        return reverse('games', args=(self.id, ))        
+
+
     class Meta:
         verbose_name_plural = 'Games'
+
+
+
