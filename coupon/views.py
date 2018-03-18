@@ -23,8 +23,7 @@ def post_coupon(request):
 class CouponCreate(generic.CreateView):
     model = Coupon
     form_class = CouponForm
-
-
+    template_name = 'coupon/coupon_form.html'
 
 
 """
