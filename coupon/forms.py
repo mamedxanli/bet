@@ -30,4 +30,5 @@ class CouponForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(CouponForm, self).__init__(*args, **kwargs)
         queryset=Games.objects.latest('games_tour')
-        self.initial['coupon_tour'] = queryset #0 #self.instance.coupon_tour(Games.objects.filter(games_tour=0))
+        self.initial['coupon_tour'] = queryset
+        self.fields['coupon_tour'].widget.attrs['disabled'] = True
