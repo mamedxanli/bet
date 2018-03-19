@@ -12,9 +12,7 @@ class Games(models.Model):
    
     def __str__(self):
         return "Games tour nmr: {}".format(self.games_tour)
-<<<<<<< HEAD
     
-=======
 
     def get_absolute_url(self):
         """
@@ -23,7 +21,6 @@ class Games(models.Model):
         return reverse('games')        
 
 
->>>>>>> master
     class Meta:
         verbose_name_plural = 'Games'
 
