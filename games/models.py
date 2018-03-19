@@ -17,7 +17,7 @@ class Games(models.Model):
         """
         Handy way of getting the url of the object to its detail view page
         """
-        return reverse('games', args=(self.id, ))        
+        return reverse('games')        
 
 
     class Meta:
