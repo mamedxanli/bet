@@ -9,6 +9,6 @@ class Games(models.Model):
 
     def __str__(self):
         return "Games tour nmr: {}".format(self.games_tour)
-
+    
     class Meta:
         verbose_name_plural = 'Games'

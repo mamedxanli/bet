@@ -29,9 +29,10 @@ class CouponForm(ModelForm):
         queryset=Games.objects.latest('games_tour')
         self.initial['coupon_tour'] = queryset
         self.fields['coupon_tour'].widget.attrs['disabled'] = True
-    
+    """
     def get_context_data(self, **kwargs):
         context = super(CouponCreate, self).get_context_data(**kwargs)
         #set some more context below.
         context['match1'] = 'bar'
         return context
+    """
