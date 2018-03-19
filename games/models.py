@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.shortcuts import render, redirect
+from django.utils.translation import ugettext as _
+from django.utils import timezone
 
 
 class Games(models.Model):
@@ -8,6 +10,8 @@ class Games(models.Model):
     games_match1 = models.CharField("Match 1", max_length=50, unique=True)
     games_match2 = models.CharField("Match 2", max_length=50, unique=True)
     games_match3 = models.CharField("Match 3", max_length=50, unique=True)
+    date_time = models.DateTimeField(auto_now_add=True)
+
 
    
     def __str__(self):

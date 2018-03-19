@@ -13,6 +13,7 @@ class GameCreate(generic.CreateView):
 
  
 class GamesList(generic.ListView):
+    #You can specify template name or default in this case games_list.html will be used
     template_name = 'games/show_games.html'
 
     def get(self, request, *args, **kwargs):
@@ -20,3 +21,10 @@ class GamesList(generic.ListView):
         
     def get_queryset(self):
         return Games.objects.all()
+
+class GamesDetail(generic.DetailView):
+    model = Games
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(GamesDetail, self).get(request, *args, **kwargs)
