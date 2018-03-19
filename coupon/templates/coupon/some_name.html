@@ -1,8 +1,20 @@
+
 <form method="post">
     {% csrf_token %}
-    {% for item in form %}
-    <p>{{ item.label }}</p>
-    <p>{{ item }}</p>
-    {% endfor %}
-    <input type="submit" value="Submit">
+    <p>You are betting for game number: {{ latest_game.pk }}</p>
+    <p>{{ form.firstname.label }}</p>
+    <p>{{ form.firstname }}</p>
+    <p>{{ form.lastname.label }}</p>
+    <p>{{ form.lastname }}</p>
+    <p>{{ form.phone_number.label }}</p>
+    <p>{{ form.phone_number }}</p>
+    <p>Please place your bets below:</p>
+    <p>{{ latest_game.games_match1 }}</p>
+    <p>{{ form.bet1 }}</p>
+    <p>{{ latest_game.games_match2 }}</p>
+    <p>{{ form.bet2 }}</p>
+    <p>{{ latest_game.games_match3 }}</p>
+    <p>{{ form.bet3 }}</p>
+    <input type="submit" value="Submit">      
 </form>
+

@@ -16,6 +16,7 @@ class Games(models.Model):
    
     def __str__(self):
         return "Games tour nmr: {}".format(self.games_tour)
+    
 
     def get_absolute_url(self):
         """
