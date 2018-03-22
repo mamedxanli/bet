@@ -7,9 +7,9 @@ from django.utils import timezone
 
 class Games(models.Model):
     games_tour = models.IntegerField("Tour", primary_key=True, unique=True, null=False, default='0')
-    games_match1 = models.CharField("Match 1", max_length=50, unique=True)
-    games_match2 = models.CharField("Match 2", max_length=50, unique=True)
-    games_match3 = models.CharField("Match 3", max_length=50, unique=True)
+    games_match1 = models.CharField("Match 1", max_length=50)
+    games_match2 = models.CharField("Match 2", max_length=50)
+    games_match3 = models.CharField("Match 3", max_length=50)
     date_time = models.DateTimeField(auto_now_add=True)
 
 

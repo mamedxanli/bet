@@ -1,5 +1,6 @@
 from django.db import models
 from games.models import Games
+from django.urls import reverse
 
 class Coupon(models.Model):
     coupon_tour = models.ForeignKey(Games, on_delete=models.CASCADE)
@@ -14,3 +15,9 @@ class Coupon(models.Model):
 
     def __str__(self):
         return "Coupon {}".format(self.id)
+
+    def get_absolute_url(self):
+        """
+        Handy way of getting the url of the object to its detail view page
+        """
+        return reverse('coupon')
