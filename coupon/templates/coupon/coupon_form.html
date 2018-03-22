@@ -2,13 +2,14 @@
 <form method="post">
     {% csrf_token %}
     <p>You are betting for game number: {{ latest_game.pk }}</p>
+    <p>{{ form.coupon_tour }}</p>
     <p>{{ form.firstname.label }}</p>
     <p>{{ form.firstname }}</p>
     <p>{{ form.lastname.label }}</p>
     <p>{{ form.lastname }}</p>
     <p>{{ form.phone_number.label }}</p>
     <p>{{ form.phone_number }}</p>
-    <p>Please place your bets below:</p>
+    <p>Please, place your bets below:</p>
     <p>{{ latest_game.games_match1 }}</p>
     <p>{{ form.bet1 }}</p>
     <p>{{ latest_game.games_match2 }}</p>

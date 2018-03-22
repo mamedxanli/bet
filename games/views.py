@@ -4,6 +4,8 @@ from games.forms import GamesForm
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+from games.models import Games
 
 
 
