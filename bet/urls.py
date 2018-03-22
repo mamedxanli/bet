@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from django.views.static import serve
+from django.conf import settings
+from django.conf.urls.static import static
+
 from . import views
 
 urlpatterns = [
@@ -24,4 +27,4 @@ urlpatterns = [
     url(r'^coupon/', include('coupon.urls')),
     url(r'^games/', include('games.urls')),
     path('admin/', admin.site.urls),
-]
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

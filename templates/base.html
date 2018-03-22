@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      {% block title %}
+          <title>210</title>
+      {% endblock %}
+
+      {% block head %}
+          {% include "head.html" %}
+      {% endblock %}
+  </head>
+
+  <body class="header-fixed header-fixed-space">
+    <div class="wrapper">
+      {% block header %}
+          {% include "header.html" %}
+      {% endblock %}
+      {% block main %}
+       <p>This is the bast template.</p>
+      {% endblock %}
+
+      {% block footer %}
+          {% include "footer.html" %}
+      {% endblock %}
+    </div>
+    {% block foot %}
+        {% include "foot.html" %}
+    {% endblock %}
+  </body>
+</html>
