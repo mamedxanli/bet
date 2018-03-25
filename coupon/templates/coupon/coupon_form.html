@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-  <title>New Coupon| 210</title>
+  <title>New Coupon | 210</title>
 {% endblock %}
 
 {% block main %}
@@ -11,21 +11,42 @@
     <div class="ibox-title">
         <form method="post" class="form-horizontal">
             {% csrf_token %}
-            <p>You are betting for game number: {{ latest_game.pk }}</p>
-            <p>{{ form.coupon_tour }}</p>
+            <p class="form-control-static">You are betting for game number: {{ latest_game.pk }}</p>
+            <p class="hidden disabled">{{ form.coupon_tour }}</p>
+            {% if form.coupon_tour.errors %}
+                <label>{{ form.coupon_tour.errors }}</label>
+            {% endif %}     
             <p>{{ form.firstname.label }}</p>
             <p>{{ form.firstname }}</p>
+            {% if form.firstname.errors %}
+                <label>{{ form.firstname.errors }}</label>
+            {% endif %} 
             <p>{{ form.lastname.label }}</p>
             <p>{{ form.lastname }}</p>
+            {% if form.lastname.errors %}
+                <label>{{ form.lastname.errors }}</label>
+            {% endif %} 
             <p>{{ form.phone_number.label }}</p>
             <p>{{ form.phone_number }}</p>
+            {% if form.phone_number.errors %}
+                <label>{{ form.phone_number.errors }}</label>
+            {% endif %} 
             <p>Please, place your bets below:</p>
             <p>{{ latest_game.games_match1 }}</p>
             <p>{{ form.bet1 }}</p>
+            {% if form.bet1.errors %}
+                <label>{{ form.bet1.errors }}</label>
+            {% endif %} 
             <p>{{ latest_game.games_match2 }}</p>
             <p>{{ form.bet2 }}</p>
+            {% if form.bet2.errors %}
+                <label>{{ form.bet2.errors }}</label>
+            {% endif %} 
             <p>{{ latest_game.games_match3 }}</p>
             <p>{{ form.bet3 }}</p>
+            {% if form.bet3.errors %}
+                <label>{{ form.bet3.errors }}</label>
+            {% endif %} 
             <input type="submit" value="Submit">      
         </form>
     </div>
