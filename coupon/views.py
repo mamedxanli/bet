@@ -15,7 +15,7 @@ class CouponCreate(generic.CreateView):
         latest_game = Games.objects.latest('games_tour')
         context['latest_game'] = latest_game
         return context
-    
+
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.

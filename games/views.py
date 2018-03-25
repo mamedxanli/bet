@@ -30,3 +30,31 @@ class GamesDetail(generic.DetailView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super(GamesDetail, self).get(request, *args, **kwargs)
+
+    def get_coupon_tour(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return self.object.id
+    
+    def get_context_data(self, **kwargs):
+        context = super(GamesDetail, self).get_context_data(**kwargs)
+        #set some more context below.
+        self.object = self.get_object()
+        qs = Coupon.objects.filter(coupon_tour=self.object.games_tour).values()
+        context = {
+            'coupon': qs,
+            'object': self.object,
+        }
+        return context
+        
+
+
+class GamesCoupons(generic.ListView):
+    template_name = "games/games_coupons.html"
+    
+    def get(self, request, *args, **kwargs):
+        return super(GamesCoupons, self).get(request, *args, **kwargs)
+     
+    def get_queryset(self):
+        #coupon_tour = super(GamesDetail, self).get_coupon_tour(request, *args, **kwargs)
+        
+        return Coupon.objects.filter(coupon_tour=1)

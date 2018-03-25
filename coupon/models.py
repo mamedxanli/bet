@@ -10,6 +10,7 @@ class Coupon(models.Model):
     bet1 = models.CharField("Bet 1", max_length=3)
     bet2 = models.CharField("Bet 2", max_length=3)
     bet3 = models.CharField("Bet 3", max_length=3)
+    coupon_amount = len(str(bet1)) * len(str(bet2)) * len(str(bet3)) 
 
 
 
