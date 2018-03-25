@@ -17,20 +17,17 @@ class CouponForm(ModelForm):
         'bet2',
         'bet3',
         )
-        
-        
-        #widgets = {'coupon_tour': forms.HiddenInput()}
 
-    
     def __init__(self, *args, **kwargs):
         super(CouponForm, self).__init__(*args, **kwargs)
         queryset=Games.objects.latest('games_tour')
         self.initial['coupon_tour'] = queryset
-        #self.fields['coupon_tour'].widget.attrs['readonly'] = True
-        
-
-
-
-    
-    
- 
+       
+    def clean_coupon_tour(self):
+        """
+        Clean the coupon_tour field and check if it is valid
+        """
+        data = self.cleaned_data['coupon_tour']
+        if data != Games.objects.latest('games_tour'):
+            raise ValidationError("Wrong tour")
+        return data
