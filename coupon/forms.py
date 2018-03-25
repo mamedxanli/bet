@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.forms import (ModelForm, ValidationError, CharField)
 from .models import Coupon, Games
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.forms import (ModelForm, ValidationError, CharField, BooleanField,
+    widgets)
 
 
 class CouponForm(ModelForm):
@@ -26,8 +27,16 @@ class CouponForm(ModelForm):
         super(CouponForm, self).__init__(*args, **kwargs)
         queryset=Games.objects.latest('games_tour')
         self.initial['coupon_tour'] = queryset
-        #self.fields['coupon_tour'].widget.attrs['readonly'] = True
-        
+
+    
+    def clean_coupon_tour(self):
+        """
+        Clean the coupon_tour field and check if it is valid
+        """
+        data = self.cleaned_data['coupon_tour']
+        if data != Games.objects.latest('games_tour'):
+            raise ValidationError("Wrong tour")
+        return data
 
 
 
