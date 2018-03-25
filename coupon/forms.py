@@ -18,17 +18,12 @@ class CouponForm(ModelForm):
         'bet2',
         'bet3',
         )
-        
-        
-        #widgets = {'coupon_tour': forms.HiddenInput()}
 
-    
     def __init__(self, *args, **kwargs):
         super(CouponForm, self).__init__(*args, **kwargs)
         queryset=Games.objects.latest('games_tour')
         self.initial['coupon_tour'] = queryset
 
-    
     def clean_coupon_tour(self):
         """
         Clean the coupon_tour field and check if it is valid
@@ -38,8 +33,3 @@ class CouponForm(ModelForm):
             raise ValidationError("Wrong tour")
         return data
 
-
-
-    
-    
- 
