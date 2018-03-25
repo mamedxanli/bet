@@ -15,6 +15,11 @@
 
 
   <p>To see all coupons for this game, please follow this link</p>
-  <td data-label="Tour"><a href="{% url 'games_coupons' object.pk %}">{{ object.pk }}</a></td>
+  {% for object in coupon %}
+    <tr>
+      <td><i class="icon-custom icon-sm rounded-x icon-bg-u icon-line icon-directions"></i></td>
+      <td data-label="Tour">{{ object.id }}</a></td>
+    </tr>
+  {% endfor %}
 
 
