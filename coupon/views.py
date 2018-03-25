@@ -13,3 +13,6 @@ class CouponCreate(generic.CreateView):
         latest_game = Games.objects.latest('games_tour')
         context['latest_game'] = latest_game
         return context
+
+
+

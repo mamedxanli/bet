@@ -30,3 +30,12 @@ class GamesDetail(generic.DetailView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super(GamesDetail, self).get(request, *args, **kwargs)
+
+class GamesCoupons(generic.ListView):
+    template_name = "games/games_coupons.html"
+    
+    def get(self, request, *args, **kwargs):
+        return super(GamesCoupons, self).get(request, *args, **kwargs)
+     
+    def get_queryset(self):
+       return Coupon.objects.filter(coupon_tour=2)
