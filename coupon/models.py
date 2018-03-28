@@ -3,6 +3,8 @@ from games.models import Games
 from django.urls import reverse
 
 class Coupon(models.Model):
+    #This field can be made non-editable by adding editable=False to the FK arguments. 
+    #In this case we made it through forms so no need for that.
     coupon_tour = models.ForeignKey(Games, on_delete=models.CASCADE)
     firstname = models.CharField("First Name", max_length=30)
     lastname = models.CharField("Surname", max_length=30)
