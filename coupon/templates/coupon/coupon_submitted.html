@@ -11,7 +11,15 @@
     <div class="ibox-title">
         <p>Your bet has been submitted!</p>
         <p>Here is your coupon: </p>
-        {{ object }}
+        {{ object.coupon_tour }}
+        {{ object.id }}
+        {{ object.firstname }}
+        {{ object.lastname }}
+        {{ object.phone_number }}
+        {{ object.bet1 }}
+        {{ object.bet2 }}
+        {{ object.bet3 }}
+        {{ object.coupon_amount }}
         <a href="{% url 'home' %}">
             <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-circle-o-left"></i> Return to the main page</button>
         </a>
