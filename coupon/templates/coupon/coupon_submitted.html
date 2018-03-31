@@ -10,6 +10,8 @@
 <div class="ibox float-e-margins">
     <div class="ibox-title">
         <p>Your bet has been submitted!</p>
+        <p>Here is your coupon: </p>
+        {{ object }}
         <a href="{% url 'home' %}">
             <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-circle-o-left"></i> Return to the main page</button>
         </a>

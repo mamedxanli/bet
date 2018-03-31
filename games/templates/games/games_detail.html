@@ -26,6 +26,7 @@
               <th>Bet 1</th>
               <th>Bet 2</th>
               <th>Bet 3</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +37,7 @@
               <td data-label="bet1">{{ object.bet1 }}</td>
               <td data-label="bet2">{{ object.bet2 }}</td>
               <td data-label="bet3">{{ object.bet3 }}</td>
+              <td data-label="Amount">{{ object.get_coupon_amount }}</td>
             </tr>
             {% endfor %}
           </tbody>
