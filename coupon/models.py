@@ -15,16 +15,6 @@ class Coupon(models.Model):
     coupon_amount = models.IntegerField("Amount", default=0, editable=False)
 
 
-
-    @property
-    def _get_coupon_amount(self):
-        amount = len(self.bet1) * len(self.bet2) *len(self.bet3)
-        return amount 
-
-    def save(self, *args, **kwargs):
-        self.coupon_amount = self._get_coupon_amount
-        super(Coupon, self).save(*args, **kwargs)
-
     def __str__(self):
         return "Coupon {}".format(self.id)
 
@@ -34,6 +24,13 @@ class Coupon(models.Model):
         """
         return reverse('coupon')
     
+    @property
+    def _get_coupon_amount(self):
+        amount = len(self.bet1) * len(self.bet2) *len(self.bet3)
+        return amount 
 
+    def save(self, *args, **kwargs):
+        self.coupon_amount = self._get_coupon_amount
+        super(Coupon, self).save(*args, **kwargs)
     
          
