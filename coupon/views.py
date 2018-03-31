@@ -20,3 +20,6 @@ class CouponCreate(generic.CreateView):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         return super(CouponCreate, self).form_valid(form)
+
+class CouponSubmitted(generic.TemplateView):
+    pass
