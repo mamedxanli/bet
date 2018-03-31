@@ -32,5 +32,3 @@ class Coupon(models.Model):
     def save(self, *args, **kwargs):
         self.coupon_amount = self._get_coupon_amount
         super(Coupon, self).save(*args, **kwargs)
-    
-         
