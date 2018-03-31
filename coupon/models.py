@@ -12,10 +12,18 @@ class Coupon(models.Model):
     bet1 = models.CharField("Bet 1", max_length=3)
     bet2 = models.CharField("Bet 2", max_length=3)
     bet3 = models.CharField("Bet 3", max_length=3)
-    coupon_amount = models.IntegerField("Coupon amount", default=0)
-    #len(str(bet1)) * len(str(bet2)) * len(str(bet3)) 
+    coupon_amount = models.IntegerField("Amount", default=0, editable=False)
 
 
+
+    @property
+    def _get_coupon_amount(self):
+        amount = len(self.bet1) * len(self.bet2) *len(self.bet3)
+        return amount 
+
+    def save(self, *args, **kwargs):
+        self.coupon_amount = self._get_coupon_amount
+        super(Coupon, self).save(*args, **kwargs)
 
     def __str__(self):
         return "Coupon {}".format(self.id)
@@ -25,8 +33,7 @@ class Coupon(models.Model):
         Handy way of getting the url of the object to its detail view page
         """
         return reverse('coupon')
+    
 
-    def get_coupon_amount(self, *args):
-        self.total_amount = len(str(bet1)) * len(str(bet2)) * len(str(bet3))
-        coupon_amount = self.total_amount
-        return coupon_amount
+    
+         
