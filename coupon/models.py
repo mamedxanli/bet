@@ -16,7 +16,7 @@ class Coupon(models.Model):
 
 
     def __str__(self):
-        return "Coupon {}".format(self.id)
+        return "Coupon {}".format(self.pk)
 
     def get_absolute_url(self):
         """

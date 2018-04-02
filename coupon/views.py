@@ -12,7 +12,7 @@ class CouponCreate(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super(CouponCreate, self).get_context_data(**kwargs)
         #set some more context below.
-        latest_game = Games.objects.latest('id')
+        latest_game = Games.objects.latest('pk')
         context['latest_game'] = latest_game
         return context
 
@@ -22,8 +22,8 @@ class CouponCreate(generic.CreateView):
         return super(CouponCreate, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('coupon_submitted', args=(self.object.id,))
-        #success_url = reverse_lazy('coupon:coupon_submitted', {'id': self.object.pk})
+        return reverse_lazy('coupon_submitted', args=(self.object.pk,))
+        #success_url = reverse_lazy('coupon:coupon_submitted', {'pk': self.object.pk})
         #return success_url
 
 class CouponSubmitted(generic.DetailView):
@@ -36,12 +36,12 @@ class CouponSubmitted(generic.DetailView):
 
     def get_coupon_id(self, request, *args, **kwargs):
         self.object = self.get_object()
-        return self.object.id
+        return self.object.pk
     
     def get_context_data(self, **kwargs):
         context = super(CouponSubmitted, self).get_context_data(**kwargs)
         self.object = self.get_object()
-        qs = Coupon.objects.get(pk=self.object.id)
+        qs = Coupon.objects.get(pk=self.object.pk)
         context = {
             'coupon': qs,
             'object': self.object,

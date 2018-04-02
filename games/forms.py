@@ -9,7 +9,7 @@ class GamesForm(ModelForm):
     class Meta:
         model = Games
         fields = (
-            #'games_tour',
+            'games_tour',
             'games_match1',
             'games_match2',
             'games_match3',
