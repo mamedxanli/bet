@@ -32,3 +32,30 @@ class Coupon(models.Model):
     def save(self, *args, **kwargs):
         self.coupon_amount = self._get_coupon_amount
         super(Coupon, self).save(*args, **kwargs)
+
+
+class WinnerCoupon(models.Model):
+    tour = models.IntegerField("Tour", primary_key=True, default=0)
+    result1 = models.IntegerField("Game 1", default=3)
+    result2 = models.IntegerField("Game 2", default=3)
+    result3 = models.IntegerField("Game 3", default=3)
+
+    def __str__(self):
+        return "Results for tour {}".format(self.tour)
+
+    winners = ''
+    
+
+    def find_winner(self):
+        self.object = self.get_object()
+        all_coupons = Coupon.objects.filter(coupon_tour=self.objects.tour)
+        for coupon in all_coupons:
+            if self.result1 in coupon.bet1:
+                pass
+            elif self.result2 in coupon.bet2:
+                pass
+            elif self.result3 in coupon.bet3:
+                winners += coupon.pk
+                return winners
+            else:
+                continue
