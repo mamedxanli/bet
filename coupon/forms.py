@@ -21,7 +21,7 @@ class CouponForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CouponForm, self).__init__(*args, **kwargs)
-        queryset=Games.objects.latest('games_tour')
+        queryset=Games.objects.latest('id')
         self.initial['coupon_tour'] = queryset
 
     def clean_coupon_tour(self):
@@ -29,7 +29,7 @@ class CouponForm(ModelForm):
         Clean the coupon_tour field and check if it is valid
         """
         data = self.cleaned_data['coupon_tour']
-        if data != Games.objects.latest('games_tour'):
+        if data != Games.objects.latest('id'):
             raise ValidationError("Wrong tour")
         return data
 

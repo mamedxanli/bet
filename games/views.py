@@ -39,7 +39,7 @@ class GamesDetail(generic.DetailView):
         context = super(GamesDetail, self).get_context_data(**kwargs)
         #set some more context below.
         self.object = self.get_object()
-        qs = Coupon.objects.filter(coupon_tour=self.object.games_tour).values()
+        qs = Coupon.objects.filter(coupon_tour=self.object.id).values()
         context = {
             'coupon': qs,
             'object': self.object,

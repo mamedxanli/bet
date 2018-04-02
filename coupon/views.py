@@ -12,7 +12,7 @@ class CouponCreate(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super(CouponCreate, self).get_context_data(**kwargs)
         #set some more context below.
-        latest_game = Games.objects.latest('games_tour')
+        latest_game = Games.objects.latest('id')
         context['latest_game'] = latest_game
         return context
 
