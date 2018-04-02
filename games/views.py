@@ -33,13 +33,13 @@ class GamesDetail(generic.DetailView):
 
     def get_coupon_tour(self, request, *args, **kwargs):
         self.object = self.get_object()
-        return self.object.id
+        return self.object.pk
     
     def get_context_data(self, **kwargs):
         context = super(GamesDetail, self).get_context_data(**kwargs)
         #set some more context below.
         self.object = self.get_object()
-        qs = Coupon.objects.filter(coupon_tour=self.object.games_tour).values()
+        qs = Coupon.objects.filter(coupon_tour=self.object.pk).values()
         context = {
             'coupon': qs,
             'object': self.object,
