@@ -32,21 +32,24 @@
                 <label>{{ form.phone_number.errors }}</label>
             {% endif %} 
             <p>Please, place your bets below:</p>
-            <p>{{ latest_game.games_match1 }}</p>
+            <p>{{ latest_game.matches.0 }}</p>
             <p>{{ form.bet1 }}</p>
             {% if form.bet1.errors %}
                 <label>{{ form.bet1.errors }}</label>
             {% endif %} 
-            <p>{{ latest_game.games_match2 }}</p>
+            <p>{{ latest_game.matches.1}}</p>
             <p>{{ form.bet2 }}</p>
             {% if form.bet2.errors %}
                 <label>{{ form.bet2.errors }}</label>
             {% endif %} 
-            <p>{{ latest_game.games_match3 }}</p>
+            <p>{{ latest_game.matches.2 }}</p>
             <p>{{ form.bet3 }}</p>
             {% if form.bet3.errors %}
                 <label>{{ form.bet3.errors }}</label>
-            {% endif %} 
+            {% endif %}
+            {% for item in latest_game.matches %}
+            <p>{{ latest_game.matches }}</p>
+            {% endfor %} 
             <input type="submit" value="Submit">      
         </form>
     </div>

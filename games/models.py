@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
@@ -10,6 +11,7 @@ class Games(models.Model):
     games_match1 = models.CharField("Match 1", max_length=50)
     games_match2 = models.CharField("Match 2", max_length=50)
     games_match3 = models.CharField("Match 3", max_length=50)
+    matches = ArrayField(models.CharField(max_length=256, blank=True), default=list, size=12)
     date_time = models.DateTimeField(auto_now_add=True)
 
 
