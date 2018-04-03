@@ -50,6 +50,10 @@
             {% for item in latest_game.matches %}
             <p>{{ item }}</p>
             {% endfor %} 
+
+            {% for item in form.bets %}
+            <p>{{ item }}</p>
+            {% endfor %} 
             <input type="submit" value="Submit">      
         </form>
     </div>

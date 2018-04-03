@@ -17,6 +17,7 @@ class CouponForm(ModelForm):
         'bet1',
         'bet2',
         'bet3',
+        'bets',
         )
 
     def __init__(self, *args, **kwargs):

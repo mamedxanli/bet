@@ -1,6 +1,8 @@
 from django.db import models
-from games.models import Games
 from django.urls import reverse
+from django.contrib.postgres.fields import ArrayField
+from games.models import Games
+
 
 class Coupon(models.Model):
     #This field can be made non-editable by adding editable=False to the FK arguments. 
@@ -12,6 +14,7 @@ class Coupon(models.Model):
     bet1 = models.CharField("Bet 1", max_length=3)
     bet2 = models.CharField("Bet 2", max_length=3)
     bet3 = models.CharField("Bet 3", max_length=3)
+    bets = ArrayField(models.CharField(max_length=3, blank=True), default=list, size=12)
     coupon_amount = models.IntegerField("Amount", default=0, editable=False)
 
 

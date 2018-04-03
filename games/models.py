@@ -12,6 +12,7 @@ class Games(models.Model):
     games_match2 = models.CharField("Match 2", max_length=50)
     games_match3 = models.CharField("Match 3", max_length=50)
     matches = ArrayField(models.CharField(max_length=256, blank=True), default=list, size=12)
+    results = ArrayField(models.CharField(max_length=1, blank=True), default=['','','','','','','','','','','',''], size=12)
     date_time = models.DateTimeField(auto_now_add=True)
 
 
