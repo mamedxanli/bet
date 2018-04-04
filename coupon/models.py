@@ -2,6 +2,7 @@ from django.db import models
 from games.models import Games
 from django.urls import reverse
 
+
 class Coupon(models.Model):
     #This field can be made non-editable by adding editable=False to the FK arguments. 
     #In this case we made it through forms so no need for that.
@@ -43,19 +44,6 @@ class WinnerCoupon(models.Model):
     def __str__(self):
         return "Results for tour {}".format(self.tour)
 
-    winners = ''
     
 
-    def find_winner(self):
-        self.object = self.get_object()
-        all_coupons = Coupon.objects.filter(coupon_tour=self.objects.tour)
-        for coupon in all_coupons:
-            if self.result1 in coupon.bet1:
-                pass
-            elif self.result2 in coupon.bet2:
-                pass
-            elif self.result3 in coupon.bet3:
-                winners += coupon.pk
-                return winners
-            else:
-                continue
+
