@@ -49,7 +49,7 @@ class CouponSubmitted(generic.DetailView):
         return context
 
 class WinnersList(generic.ListView):
-    
+
     def get(self, request, *args, **kwargs):        
         return super(WinnersList, self).get(request, *args, **kwargs)
     

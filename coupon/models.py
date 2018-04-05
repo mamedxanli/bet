@@ -1,7 +1,25 @@
 from django.db import models
 from games.models import Games
 from django.urls import reverse
-#from coupon.admin import FindWinner
+from django.contrib import admin
+from django.http import HttpResponseRedirect
+
+
+def find_winner(self, request, *args, **kwargs):
+    tour_number = request.GET.get('id')
+    all_coupons = Coupon.objects.filter(coupon_tour=tour_number)
+    winner_coupon = WinnerCoupon.objects.filter(pk=tour_number).values()
+    winners = []
+    for coupon in all_coupons:
+        if str(winner_coupon.values_list()[0][1]) in coupon.bet1:
+            if str(winner_coupon.values_list()[0][2]) in coupon.bet2:
+                if str(winner_coupon.values_list()[0][3]) in coupon.bet3:
+                    winners += str(coupon.pk)
+        else:
+            continue
+    return winners
+    #return HttpResponseRedirect(reverse('winners_list'))
+find_winner.short_description = "Find a winner"
 
 class Coupon(models.Model):
     #This field can be made non-editable by adding editable=False to the FK arguments. 
@@ -44,14 +62,22 @@ class WinnerCoupon(models.Model):
     def __str__(self):
         return "Results for tour {}".format(self.tour)
 
+
+@admin.register(Coupon)
+class FindWinner(admin.ModelAdmin):
+    #On admin page of Coupon we can visualize properties using the following syntax:
+    list_display = ['id', 'coupon_tour', 'coupon_amount', 'firstname', 'lastname', 'phone_number']
+    #Here we add new function to action drop down for changing coupon
+    actions = [find_winner]
+
+
 class Winners(models.Model):
-    
     def get_winner(self):
         qs = FindWinner.objects.all()
         return qs
     
 
-    
+
 
     
 
