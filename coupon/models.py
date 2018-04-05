@@ -1,7 +1,7 @@
 from django.db import models
 from games.models import Games
 from django.urls import reverse
-
+#from coupon.admin import FindWinner
 
 class Coupon(models.Model):
     #This field can be made non-editable by adding editable=False to the FK arguments. 
@@ -43,6 +43,15 @@ class WinnerCoupon(models.Model):
 
     def __str__(self):
         return "Results for tour {}".format(self.tour)
+
+class Winners(models.Model):
+    
+    def get_winner(self):
+        qs = FindWinner.objects.all()
+        return qs
+    
+
+    
 
     
 

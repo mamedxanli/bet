@@ -33,3 +33,4 @@ class CouponForm(ModelForm):
             raise ValidationError("Wrong tour")
         return data
 
+

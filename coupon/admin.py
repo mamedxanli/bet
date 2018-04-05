@@ -6,11 +6,12 @@ from django.db import models
 
 @admin.register(Coupon)
 class FindWinner(admin.ModelAdmin):
-    coupon_tour = models.CharField('Please, specify tour number for coupons to be selected!')
-    winner_tour = models.CharField('Please, specify tour number for winning coupons!')
-
+    #On admin page of Coupon we can visualize properties using the following syntax:
+    list_display = ['id', 'coupon_tour', 'coupon_amount', 'firstname', 'lastname', 'phone_number']
+    #Here we add new function to action drop down for changing coupon
     actions = [find_winner]
-    
+
+   
 
 admin.site.register(Games)
 admin.site.register(WinnerCoupon)

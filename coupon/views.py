@@ -2,8 +2,9 @@ from coupon.models import Coupon, Games
 from django.views import generic
 from coupon.forms import CouponForm
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+from coupon.models import Winners
 
 class CouponCreate(generic.CreateView):
     form_class = CouponForm
@@ -23,8 +24,7 @@ class CouponCreate(generic.CreateView):
 
     def get_success_url(self):
         return reverse_lazy('coupon_submitted', args=(self.object.pk,))
-        #success_url = reverse_lazy('coupon:coupon_submitted', {'pk': self.object.pk})
-        #return success_url
+
 
 class CouponSubmitted(generic.DetailView):
     template_name = 'coupon/coupon_submitted.html'
@@ -47,3 +47,11 @@ class CouponSubmitted(generic.DetailView):
             'object': self.object,
         }
         return context
+
+class WinnersList(generic.ListView):
+    
+    def get(self, request, *args, **kwargs):        
+        return super(WinnersList, self).get(request, *args, **kwargs)
+    
+    def get_queryset(self):
+        return Winners.objects.all()
