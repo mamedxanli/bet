@@ -4,7 +4,7 @@ from coupon.forms import CouponForm
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-from coupon.models import Winners
+#from coupon.models import Winners
 
 class CouponCreate(generic.CreateView):
     form_class = CouponForm
@@ -47,7 +47,7 @@ class CouponSubmitted(generic.DetailView):
             'object': self.object,
         }
         return context
-
+'''
 class WinnersList(generic.ListView):
 
     def get(self, request, *args, **kwargs):        
@@ -55,3 +55,18 @@ class WinnersList(generic.ListView):
     
     def get_queryset(self):
         return Winners.objects.all()
+
+'''
+
+#TODO
+"""
+make your method for admin return 
+return render(request, 'coupon/winners_list', {'winners': winners,
+                                                     'blah': blah,
+                                                     })
+on the winners list page do:
+{% for winner in winners %}
+{{ winner }}
+
+currently winner calculating method is in models, it should be moved to views.
+"""
