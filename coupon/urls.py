@@ -8,5 +8,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', views.CouponCreate.as_view(), name='coupon'),
     url(r'^coupon_submitted/(?P<pk>\d+)/$', views.CouponSubmitted.as_view(), name='coupon_submitted'),
-    url(r'^winners_list/(?P<pk>\d+)/$', models.find_winner, name='winners_list'),
+    url(r'^calc_winners/$', views.CalcWinners.as_view(), name='calc_winners'),
+    url(r'^winners_list/(?P<pk>\d+)/$', views.Winners.as_view(), name='winners_list'),
               ]

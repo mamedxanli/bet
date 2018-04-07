@@ -1,6 +1,6 @@
-from coupon.models import Coupon, Games
+from coupon.models import Coupon, Games, WinnerCoupon
 from django.views import generic
-from coupon.forms import CouponForm
+from coupon.forms import CouponForm, WinnerCouponForm
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.http import HttpResponse
@@ -47,26 +47,24 @@ class CouponSubmitted(generic.DetailView):
             'object': self.object,
         }
         return context
-'''
-class WinnersList(generic.ListView):
 
-    def get(self, request, *args, **kwargs):        
-        return super(WinnersList, self).get(request, *args, **kwargs)
-    
-    def get_queryset(self):
-        return Winners.objects.all()
+class CalcWinners(generic.CreateView):
+    form_class = WinnerCouponForm
+    template_name = 'coupon/calc_winners.html'
 
-'''
+        
+class Winners(generic.CreateView):
+    model = Coupon
+    template_name = 'coupon/winners_list.html'
 
-#TODO
-"""
-make your method for admin return 
-return render(request, 'coupon/winners_list', {'winners': winners,
-                                                     'blah': blah,
-                                                     })
-on the winners list page do:
-{% for winner in winners %}
-{{ winner }}
-
-currently winner calculating method is in models, it should be moved to views.
-"""
+    def calc_winners(self, request, *args):
+        all_coupons = Coupon.objects.filter(coupon_tour=self.request.pk)
+        winner_coupon = WinnerCoupon.objects.filter(pk=self.request.pk)
+        winning_result = [ x for x in winner_coupon.values() ]
+        winners = []
+        for coupon in all_coupons:
+            if str(winning_result[0]['result1']) in coupon.bet1:
+                if str(winning_result[0]['result2']) in coupon.bet2:
+                    if str(winning_result[0]['result3']) in coupon.bet3:
+                        winners.append(coupon.pk)
+        return render(request, 'coupon/winners_list.html', {'winners': winners})

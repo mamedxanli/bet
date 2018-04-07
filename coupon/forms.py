@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Coupon, Games
+from coupon.models import Coupon
+from games.models import Games
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.forms import (ModelForm, ValidationError, CharField, BooleanField,
@@ -33,4 +34,18 @@ class CouponForm(ModelForm):
             raise ValidationError("Wrong tour")
         return data
 
+class WinnerCouponForm(ModelForm):
+    class Meta:
+        model = Coupon
+        fields = (
+        'coupon_tour',
+        )
 
+    def clean_coupon_tour(self):
+        """
+        Clean the coupon_tour field and check if it is valid
+        """
+        data = self.cleaned_data['coupon_tour']
+        if data != Games.objects.latest('pk'):
+            raise ValidationError("Wrong tour")
+        return data
