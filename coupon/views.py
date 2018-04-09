@@ -52,14 +52,11 @@ class CalcWinners(generic.CreateView):
     form_class = WinnerCouponForm
     template_name = 'coupon/calc_winners.html'
 
-        
-class Winners(generic.CreateView):
-    model = Coupon
-    template_name = 'coupon/winners_list.html'
-
-    def calc_winners(self, request, *args):
-        all_coupons = Coupon.objects.filter(coupon_tour=self.request.pk)
-        winner_coupon = WinnerCoupon.objects.filter(pk=self.request.pk)
+'''        
+    def get(self, request, *args):
+        data = 'data'
+        all_coupons = Coupon.objects.filter(coupon_tour=data)
+        winner_coupon = WinnerCoupon.objects.filter(pk=data)
         winning_result = [ x for x in winner_coupon.values() ]
         winners = []
         for coupon in all_coupons:
@@ -68,3 +65,4 @@ class Winners(generic.CreateView):
                     if str(winning_result[0]['result3']) in coupon.bet3:
                         winners.append(coupon.pk)
         return render(request, 'coupon/winners_list.html', {'winners': winners})
+'''

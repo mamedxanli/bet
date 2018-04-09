@@ -56,16 +56,10 @@ class Coupon(models.Model):
 
 
 class WinnerCoupon(models.Model):
-    tour = models.IntegerField("Tour", primary_key=True, default=0)
+    tour = models.ForeignKey(Games, default=0, on_delete=models.CASCADE)
     result1 = models.IntegerField("Game 1", default=3)
     result2 = models.IntegerField("Game 2", default=3)
     result3 = models.IntegerField("Game 3", default=3)
 
     def __str__(self):
         return "Results for tour {}".format(self.tour)
-
-class Winners(models.Model):
-    coupon = models.ForeignKey(Coupon, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Winner {}".format(self.coupon)
