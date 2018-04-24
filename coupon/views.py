@@ -4,8 +4,12 @@ from coupon.forms import CouponForm
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import get_user_model
 
-class CouponCreate(generic.CreateView):
+
+#User needs to be logged in in order to bet.
+class CouponCreate(LoginRequiredMixin, generic.CreateView):
     form_class = CouponForm
     template_name = 'coupon/coupon_form.html'
 
@@ -26,7 +30,7 @@ class CouponCreate(generic.CreateView):
         #success_url = reverse_lazy('coupon:coupon_submitted', {'pk': self.object.pk})
         #return success_url
 
-class CouponSubmitted(generic.DetailView):
+class CouponSubmitted(LoginRequiredMixin, generic.DetailView):
     template_name = 'coupon/coupon_submitted.html'
     model = Coupon
 

@@ -6,14 +6,22 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from games.models import Games
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
-
-class GameCreate(generic.CreateView):
+#Only admins should be able to create games
+class GameCreate(UserPassesTestMixin, generic.CreateView):
     form_class = GamesForm   
     template_name = 'games/games_form.html'
 
- 
+    #With this test we check that is the user is admin, can be modified to add more contraints.
+    #We can use this method to check stuff in other views, straightforward and easy.
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+#All the games and results are available even without login:
+
 class GamesList(generic.ListView):
     #You can specify template name or default in this case games_list.html will be used
     template_name = 'games/show_games.html'

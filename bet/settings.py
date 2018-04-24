@@ -74,6 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bet.wsgi.application'
 
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
