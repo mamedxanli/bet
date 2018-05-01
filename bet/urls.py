@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,8 +25,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
     url(r'^coupon/', include('coupon.urls', namespace='coupon')),
-    #url(r'^games/', include('games.urls', namespace='games')),
+    url(r'^games/', include('games.urls', namespace='games')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('games/', include('games.urls', namespace='games')),
+    #path('games/', include('games.urls', namespace='games')),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

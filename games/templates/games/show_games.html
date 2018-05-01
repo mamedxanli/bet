@@ -23,7 +23,7 @@
             {% for object in object_list %}
             <tr>
                 <td><i class="icon-custom icon-sm rounded-x icon-bg-u icon-line icon-directions"></i></td>
-                <td data-label="Tour"><a href="{% url 'games_detail' object.pk %}">{{ object.pk }}</a></td>
+                <td data-label="Tour"><a href="{% url 'games:games_detail' object.pk %}">{{ object.pk }}</a></td>
                 <td data-label="Date & Time"><strong>{{ object.date_time}}</strong></td>
             
            </tr>
