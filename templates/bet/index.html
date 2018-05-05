@@ -8,6 +8,9 @@
 
 {% block main %}
     <div class="row  border-bottom white-bg dashboard-header">
-        Welcome to 210 betting house! Wanna bet some? Click here:
+        <h1>Welcome to 210 betting house! </h1>
+        <p>Check our latest results <a href="{% url 'games:games_list' %}">here</a></p>
+        </br>
+        <p>Wanna bet some? <a href="{% url 'login' %}">Register here</a></p>
     </div>
 {% endblock %}
