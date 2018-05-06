@@ -1,3 +1,47 @@
 {% load staticfiles %}
-<p>This is the header. </p>
-<p>The navbar and titles of the page here. </p>
+<div class=" col-lg-12">
+    <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="#" class="navbar-brand">2 1 0</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a aria-expanded="false" role="button" href="{% url 'games:games_list' %}"> Games Results</a>
+                    </li>
+                    <li class="">
+                        <a aria-expanded="false" role="button" href="{% url 'login' %}"> Register yourself</a>
+                    </li>
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Bet on the next gane <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Game number: 210</a></li>
+                            <li><a href="">Menu item 2</a></li>
+                            <li><a href="">Menu item 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Other Menu item <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="">Menu item 1 </a></li>
+                            <li><a href="">Menu item 2 </a></li>
+                            <li><a href="">Menu item 3 </a></li>
+                            <li><a href="">Menu item 4 </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li >
+                            <a href="{% url 'login' %}">
+                                <i class="fa fa-sign-in"></i> Login
+                            </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

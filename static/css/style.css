@@ -327,7 +327,7 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 .navbar-fixed-top {
   background: #fff;
   transition-duration: 0.4s;
-  border-bottom: 1px solid #e7eaec !important;
+  border-bottom: 10px solid #e7eaec !important;
   z-index: 2030;
 }
 .navbar-fixed-top,
@@ -521,6 +521,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 .top-navigation .navbar {
   margin-bottom: 0;
+  border-top: 10px solid #f3f3f4;
 }
 .top-navigation .nav > li > a {
   padding: 15px 20px;
@@ -3524,7 +3525,7 @@ a:focus {
   text-decoration: none;
 }
 .border-bottom {
-  border-bottom: 1px solid #e7eaec !important;
+  border-bottom: 10px solid #f3f3f4 !important;
 }
 .font-bold {
   font-weight: 600;
@@ -3678,10 +3679,13 @@ ol.unstyled {
 /* FOOTER */
 .footer {
   background: none repeat scroll 0 0 white;
-  border-top: 1px solid #e7eaec;
+  border-top: 10px solid #f3f3f4;
+  border-bottom: 10px solid #f3f3f4;
+  border-left: 15px solid #f3f3f4;
+  border-right: 15px solid #f3f3f4;
   bottom: 0;
   left: 0;
-  padding: 10px 20px;
+  padding: 10px 15px;
   position: absolute;
   right: 0;
 }

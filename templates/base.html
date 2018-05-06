@@ -11,21 +11,22 @@
       {% endblock %}
   </head>
 
-  <body class="header-fixed header-fixed-space">
-    <div class="wrapper">
-      {% block header %}
-          {% include "header.html" %}
-      {% endblock %}
-      {% block main %}
-       <p>This is the base template.</p>
-      {% endblock %}
+  <body class="top-navigation pace-done animated fadeInRight">
+    <div id="wrapper">
+            <div id="page-wrapper" class="gray-bg">
+            {% block header %}
+                {% include "header.html" %}
+            {% endblock %}
+            {% block main %}
+            <p>This is the base template.</p>
+            {% endblock %}
 
-      {% block footer %}
-          {% include "footer.html" %}
-      {% endblock %}
-    </div>
-    {% block foot %}
-        {% include "foot.html" %}
-    {% endblock %}
+            {% block footer %}
+                {% include "footer.html" %}
+            {% endblock %}
+            </div>
+            {% block foot %}
+                {% include "foot.html" %}
+            {% endblock %}
   </body>
 </html>
