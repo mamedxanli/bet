@@ -7,10 +7,16 @@
 {% endblock %}
 
 {% block main %}
-    <div class="row  border-bottom white-bg dashboard-header">
-        <h1>Welcome to 210 betting house! </h1>
-        <p>Check our latest results <a href="{% url 'games:games_list' %}">here</a></p>
-        </br>
-        <p>Wanna bet some? <a href="{% url 'login' %}">Register here</a></p>
+    <div class="col-lg-12">
+        <div class="row border-bottom white-bg dashboard-header animated fadeInRight">
+            <h1>Welcome to 210 betting house! </h1>
+            </br>
+            ### Add a table here for an image or something. Maybe more text. ###
+            <p>We are proud to be the best online platform for this classic game!</p>
+            </br>
+            <p>In order to play you need to register yourself in using the links above.</p>
+            </br>
+            <p>You can check the past results without login.</p>
+        </div>
     </div>
 {% endblock %}
